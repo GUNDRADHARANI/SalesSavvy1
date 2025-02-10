@@ -12,6 +12,7 @@ SalesSavvy is a sales management application designed to help businesses track s
 - **Version Control**: Git & GitHub
 - **Build Tool**: Maven
 - **Deployment**: AWS (EC2, RDS)
+- **Payment Gateway**: Razorpay API
 
 ## 3. Architecture
 SalesSavvy follows a **RESTful API** architecture with the following components:
@@ -44,6 +45,11 @@ SalesSavvy follows a **RESTful API** architecture with the following components:
 - **PUT /api/sales/{id}** - Update sales record
 - **DELETE /api/sales/{id}** - Delete a sales record
 
+### Payment Integration (Razorpay API)
+- **POST /api/payments/create-order** - Create a new payment order
+- **POST /api/payments/verify** - Verify payment status
+- **GET /api/payments/{id}** - Retrieve payment details
+
 ### Reporting
 - **GET /api/reports/sales-summary** - Get sales summary report
 - **GET /api/reports/top-products** - Get top-selling products
@@ -53,6 +59,7 @@ SalesSavvy follows a **RESTful API** architecture with the following components:
 - **Users** (id, name, email, password, role)
 - **Products** (id, name, description, price, stock_quantity)
 - **Sales** (id, product_id, user_id, quantity, total_price, timestamp)
+- **Payments** (id, user_id, order_id, amount, status, payment_method, transaction_id)
 
 ## 6. Security Implementation
 - **JWT-based Authentication**: Users must authenticate to access protected routes.
@@ -81,6 +88,8 @@ SalesSavvy's backend is designed for scalability, security, and maintainability.
 **Author**: SalesSavvy Development Team  
 **Version**: 1.0  
 **Date**: February 2025
+
+
 
 Structure of the File 
 ![Screenshot (194)](https://github.com/user-attachments/assets/e7533789-e8f0-4456-a402-4ab683abf393)
